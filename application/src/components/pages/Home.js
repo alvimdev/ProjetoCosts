@@ -8,7 +8,7 @@ function Home(){
             <h1>Bem-vindo ao <spam>Costs</spam></h1>
             <p>Comece a gerenciar seus projetos agora mesmo!</p>
             <Links to="/newproject" text="Criar Projeto"/>
-            <img src={savin} alt="image.png"/>
+            <img src={savin} alt="savin'"/>
         </section>
     )
 }
