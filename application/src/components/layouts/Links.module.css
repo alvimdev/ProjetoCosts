@@ -1,0 +1,11 @@
+.btn {
+    background-color: rgb(26, 26, 26);
+    color: azure;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.btn:hover {
+    color: darkgoldenrod;
+}

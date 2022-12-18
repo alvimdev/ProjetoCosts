@@ -1,14 +1,18 @@
 .navbar{
     display: flex;
     justify-content: space-between;
-    background-color: black;
-    padding: 1em;
+    background-color: rgb(26, 26, 26);
+    padding: 10px;
 }
 
 .list{
     display: flex;
     list-style: none;
     align-items: center;
+}
+
+.logo{
+    margin-right: 120vh;
 }
 
 .item{
