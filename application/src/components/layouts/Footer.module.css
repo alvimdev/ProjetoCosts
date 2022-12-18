@@ -12,17 +12,18 @@
     align-items: center;
 }
 
-.social_list > li{
-    margin: 0 1em;
-}
-
-.social_list > li:hover{
-    color: darkgoldenrod;
-}
-
 .item{
+    margin: 0 1em;
     font-size: 1.5em;
     cursor: pointer;
+}
+
+.item > a{
+    color: azure;
+}
+
+.item > a:hover{
+    color: darkgoldenrod;
 }
 
 .copy_right > span{
