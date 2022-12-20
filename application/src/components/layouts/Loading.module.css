@@ -4,8 +4,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .loader{
-    width: 50px
+    width: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 150px 0 0 -25px
 }

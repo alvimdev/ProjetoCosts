@@ -1,0 +1,45 @@
+.project_details{
+    padding: 2em;
+}
+
+.project_details h1, h2, p {
+    margin-bottom: .5em;
+}
+
+.project_details h1 {
+    background-color: rgb(26, 26, 26);
+    color: goldenrod;
+    padding: 0.4em;
+}
+
+.project_details span {
+    font-weight: bold;
+}
+
+.details_container,
+.service_form_container {
+    border-bottom: 1px solid dimgrey;
+    margin-bottom: 1.2em;
+    padding-bottom: 1.2em;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.btn {
+    background-color: rgb(26, 26, 26);
+    color: azure;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    transition: 0.5s;
+    cursor: pointer;
+    max-height: 40px;
+    border: none;
+}
+
+.btn:hover {
+    color: darkgoldenrod;
+}
+
+.project_info{
+    width: 100%;
+}

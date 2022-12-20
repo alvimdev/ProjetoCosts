@@ -8,9 +8,10 @@ import NovoProjeto from './components/pages/NovoProjeto';
 import Navbar from './components/layouts/Navbar';
 import Container from './components/layouts/Container';
 import Footer from './components/layouts/Footer';
-import Projects from './components/pages/Project';
+import Projects from './components/pages/Projects';
+import Project from './components/projects/Project';
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       <Navbar/>
@@ -20,12 +21,11 @@ function App() {
           <Route path='/company' element={<Companhia/>}/>
           <Route path='/contato' element={<Contato/>}/>
           <Route path='/newproject' element={<NovoProjeto/>}/>
-          <Route path='/project' element={<Projects/>}/>
+          <Route path='/projects' element={<Projects/>}/>
+          <Route path='/project/:id' element={<Project/>}/>
         </Routes>
         </Container>
       <Footer/>
     </BrowserRouter>
   )
 }
-
-export default App;
