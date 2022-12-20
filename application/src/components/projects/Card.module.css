@@ -1,0 +1,84 @@
+.project_card{
+    padding: 1em;
+    border: 1px solid dimgrey;
+    border-radius: 5px;
+    width: 24%;
+    margin: 0.5%;
+}
+
+.project_card > h4{
+    color: goldenrod;
+    background-color: rgb(26, 26, 26);
+    padding: .4em;
+    margin-bottom: 1.3em;
+    font-size: 1.3em;
+}
+
+.project_card > p{
+    color: dimgray;
+    margin-bottom: 1em;
+}
+
+.project_card > p span{
+    font-weight: bold;
+}
+
+.category_text{
+    display: flex;
+    align-items: center;
+}
+
+.category_text > span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #CCC;
+    margin-right: 5px;
+}
+
+.category_text > .desenvolvimento{
+    background-color: mediumpurple;
+}
+
+.category_text > .infra{
+    background-color: hotpink;
+}
+
+.category_text > .design{
+    background-color: cornflowerblue;
+}
+
+.category_text > .planejamento{
+    background-color: darksalmon;
+}
+
+.project_card_actions{
+    display: flex;
+    align-items: center;
+    margin-top: 1.2em;
+}
+
+.project_card_actions > a, button{
+    text-decoration: none;
+    border: none;
+    background-color: azure;
+    color: rgb(26, 26, 26);
+    font-size: .9em;
+    padding: .6em 1em;
+    margin-right: 1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s;
+}
+
+.project_card_actions > svg{
+    margin-right: .5em;
+}
+
+.project_card_actions > a:hover, button:hover{
+    background-color: rgb(26, 26, 26);
+    color: darkgoldenrod;
+}
