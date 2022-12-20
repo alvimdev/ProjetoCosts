@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 
 import Message from "../layouts/Message"
 import Container from "../layouts/Container"
+import Load  from "../layouts/Loading"
 import Links from "../layouts/Links"
 import Card from "../projects/Card"
 
@@ -11,6 +12,7 @@ import styles from "./Project.module.css"
 function Projects(){
 
     const  [projects, setProjects] = useState([])
+    const [loading, setLoading] = useState(false)
 
     const location = useLocation()
     let message = ''
@@ -19,19 +21,22 @@ function Projects(){
     }
 
     useEffect(() => {
-        //                         ↓ Dev URL (@alvimdev on GitHub) ↓                                  ↓ Common URL  ↓
-        fetch('https://6000-alvimdev-projetocosts-oh4bd0188ho.ws-us79.gitpod.io/projects' || 'http://localhost:6000/projects', {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        })
-            .then(response => response.json())
-            .then((data) => {
-                console.log(data)
-                setProjects(data)
+        setTimeout(() => {
+            //                         ↓ Dev URL (@alvimdev on GitHub) ↓                                  ↓ Common URL  ↓
+            fetch('https://6000-alvimdev-projetocosts-oh4bd0188ho.ws-us79.gitpod.io/projects' || 'http://localhost:6000/projects', {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
             })
-            .catch((err) => console.log(err))
+                .then(response => response.json())
+                .then((data) => {
+                    console.log(data)
+                    setProjects(data)
+                    setLoading(true)
+                })
+                .catch((err) => console.log(err))
+        }, 300)
     }, [])
 
     return(
@@ -55,6 +60,10 @@ function Projects(){
                         )
                     })
                 }
+                {!loading && <Load/>}
+                {loading && projects.length === 0 && (
+                    <p>Não há projetos cadastrados.</p>
+                )}
             </Container>
         </div>
     )
