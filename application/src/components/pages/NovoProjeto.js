@@ -13,7 +13,7 @@ function NovoProjeto(){
         project.cost = 0;
         project.service = []
         //                         ↓ Dev URL (@alvimdev on GitHub) ↓                                  ↓ Common URL  ↓
-        fetch("https://6000-alvimdev-projetocosts-oh4bd0188ho.ws-us79.gitpod.io/projects" || "http://localhost:6000/projects", {
+        fetch("https://6000-alvimdev-projetocosts-oh4bd0188ho.ws-us80.gitpod.io/projects" || "http://localhost:6000/projects", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

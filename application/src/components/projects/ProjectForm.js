@@ -11,7 +11,7 @@ function ProjectForm(props){
     const [project, setProject] = useState(props.projectData || {});
 
     useEffect(() => {
-        fetch("https://6000-alvimdev-projetocosts-oh4bd0188ho.ws-us79.gitpod.io/categories" || "http://localhost:6000/categories", {
+        fetch("https://6000-alvimdev-projetocosts-oh4bd0188ho.ws-us80.gitpod.io/categories" || "http://localhost:6000/categories", {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
