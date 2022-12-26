@@ -7,8 +7,15 @@
         "id": "4",
         "name": "Planejamento"
       },
-      "cost": 0,
-      "service": [],
+      "cost": 100,
+      "service": [
+        {
+          "cost": "100",
+          "description": "bololo haha",
+          "name": "meu novo serviço",
+          "id": "1aa2c44c-0433-4c64-8bdd-6336897b2c7e"
+        }
+      ],
       "id": 1
     },
     {

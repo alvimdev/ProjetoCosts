@@ -8,8 +8,12 @@
 
 .project_details h1 {
     background-color: rgb(26, 26, 26);
-    color: goldenrod;
+    color: darkgoldenrod;
     padding: 0.4em;
+}
+
+.details_container > h1 span{
+    color: goldenrod;
 }
 
 .project_details span {
@@ -25,6 +29,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
 .btn {
     background-color: rgb(26, 26, 26);
     color: azure;
