@@ -7,6 +7,7 @@ import Message from '../layouts/Message';
 import Container from '../layouts/Container';
 import ProjectForm from './ProjectForm';
 import ServiceForm from '../service/ServiceForm';
+import ServiceCard from '../service/ServiceCard';
 
 import styles from './Project.module.css';
 
@@ -14,6 +15,7 @@ function Project(){
     
     const { id } = useParams()
     const [project, setProject] = useState([])
+    const [services, setServices] = useState([])
     const [showProjectForm, setShowProjectForm] = useState(false)
     const [showServiceForm, setShowServiceForm] = useState(false)
     const [message, setMessage] = useState('')
@@ -22,7 +24,7 @@ function Project(){
     useEffect(() => {
         setTimeout(() => {
             //                         ↓ Dev URL (@alvimdev on GitHub) ↓                                  ↓ Common URL  ↓
-            fetch(`https://6000-alvimdev-projetocosts-oh4bd0188ho.ws-us80.gitpod.io/projects/${id}` || `http://localhost:6000/projects/${id}`, {
+            fetch(`https://6000-alvimdev-projetocosts-oh4bd0188ho.ws-us81.gitpod.io/projects/${id}` || `http://localhost:6000/projects/${id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -31,6 +33,7 @@ function Project(){
             .then(res => res.json())
             .then((data) => {
                 setProject(data)
+                setServices(data.service)
             })
             .catch(err => console.log(err))  
         }, 100)
@@ -61,7 +64,7 @@ function Project(){
         project.cost = newCost;
 
         //update project
-        fetch(`https://6000-alvimdev-projetocosts-oh4bd0188ho.ws-us80.gitpod.io/projects/${id}` || `http://localhost:6000/projects/${id}`, {
+        fetch(`https://6000-alvimdev-projetocosts-oh4bd0188ho.ws-us81.gitpod.io/projects/${id}` || `http://localhost:6000/projects/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -71,6 +74,7 @@ function Project(){
         .then(res => res.json())
         .then((data) => {
             console.log(data)
+            setShowServiceForm(false)
         })
         .catch(err => console.log(err))
     }
@@ -83,6 +87,32 @@ function Project(){
         setShowServiceForm(!showServiceForm)
     }
 
+    function removeService(id, cost){
+        const serviceUpdate = project.service.filter(
+            (service) => service.id !== id
+        )
+
+        const projectUpdate = project
+        projectUpdate.service = serviceUpdate
+        projectUpdate.cost = parseFloat(projectUpdate.cost) - parseFloat(cost)
+
+        fetch(`https://6000-alvimdev-projetocosts-oh4bd0188ho.ws-us81.gitpod.io/projects/${projectUpdate.id}` || `http://localhost:6000/projects/${projectUpdate.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(projectUpdate)
+        })
+         .then(res => res.json())
+         .then((data) => {
+            setProject(projectUpdate)
+            setServices(serviceUpdate)
+            setMessage("Serviço removido com sucesso!")
+            setTypeMessage('success')
+         })
+         .catch(err => console.log(err))
+    }
+
     function editPost(project){
         setMessage('')
 
@@ -93,7 +123,7 @@ function Project(){
             return false
         }
         //                         ↓ Dev URL (@alvimdev on GitHub) ↓                                  ↓ Common URL  ↓
-        fetch(`https://6000-alvimdev-projetocosts-oh4bd0188ho.ws-us80.gitpod.io/projects/${id}` || `http://localhost:6000/projects/${id}`, {
+        fetch(`https://6000-alvimdev-projetocosts-oh4bd0188ho.ws-us81.gitpod.io/projects/${id}` || `http://localhost:6000/projects/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -158,7 +188,20 @@ function Project(){
                         </div>
                         <h2>Serviços</h2>
                         <Container customClass="start">
-                            <p>Itens de serviço:</p>
+                            {services.length > 0 &&
+                                services.map((service) => (
+                                    <ServiceCard 
+                                      id={service.id}
+                                      name={service.name}
+                                      cost={service.cost}
+                                      description={service.description}
+                                      key={service.id}
+                                      handleRemove={removeService}
+                                    />
+                                ))
+                            } { services.length === 0 &&
+                                <p>Não há serviços cadastrados</p>
+                            }
                         </Container>
                     </Container>
                 </div>

@@ -24,7 +24,7 @@ function Projects(){
     useEffect(() => {
         setTimeout(() => {
             //                         ↓ Dev URL (@alvimdev on GitHub) ↓                                  ↓ Common URL  ↓
-            fetch('https://6000-alvimdev-projetocosts-oh4bd0188ho.ws-us80.gitpod.io/projects' || 'http://localhost:6000/projects', {
+            fetch('https://6000-alvimdev-projetocosts-oh4bd0188ho.ws-us81.gitpod.io/projects' || 'http://localhost:6000/projects', {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -42,7 +42,7 @@ function Projects(){
 
     function removeProject(id){
         //                         ↓ Dev URL (@alvimdev on GitHub) ↓                                  ↓ Common URL  ↓
-        fetch(`https://6000-alvimdev-projetocosts-oh4bd0188ho.ws-us79.gitpod.io/projects/${id}` || `http://localhost:6000/projects/${id}`, {
+        fetch(`https://6000-alvimdev-projetocosts-oh4bd0188ho.ws-us81.gitpod.io/projects/${id}` || `http://localhost:6000/projects/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"

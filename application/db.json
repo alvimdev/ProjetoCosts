@@ -7,15 +7,8 @@
         "id": "4",
         "name": "Planejamento"
       },
-      "cost": 100,
-      "service": [
-        {
-          "cost": "100",
-          "description": "bololo haha",
-          "name": "meu novo serviço",
-          "id": "1aa2c44c-0433-4c64-8bdd-6336897b2c7e"
-        }
-      ],
+      "cost": 0,
+      "service": [],
       "id": 1
     },
     {
@@ -25,8 +18,15 @@
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 0,
-      "service": [],
+      "cost": 240,
+      "service": [
+        {
+          "name": "Comprar mouse novo",
+          "cost": "240",
+          "description": "Meu mouse quebrou, preciso de um novo",
+          "id": "acc2acf9-3975-4a8f-9e79-b94cae5b2b46"
+        }
+      ],
       "id": 2
     },
     {
@@ -50,17 +50,6 @@
       "cost": 0,
       "service": [],
       "id": 7
-    },
-    {
-      "name": "robo salazar",
-      "budget": "400000",
-      "category": {
-        "id": "3",
-        "name": "Design"
-      },
-      "cost": 0,
-      "service": [],
-      "id": 8
     }
   ],
   "categories": [
